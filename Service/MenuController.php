@@ -9,7 +9,7 @@
 namespace Arse\MenuBundle\Service;
 
 use Arse\MenuBundle\Entity\HtmlList;
-use Arse\MenuBundle\Entity\MenuBaseService;
+use Arse\MenuBundle\Service\AbstractMenuService;
 
 class MenuController
 {
@@ -37,7 +37,7 @@ class MenuController
         return $list;
     }
 
-    public function processMenusFromService(MenuBaseService $serviceMenuBase){
+    public function processMenusFromService(AbstractMenuService $serviceMenuBase){
         // trigger the changes to be made to the lists
         $serviceMenuBase->getMenus();
     }
