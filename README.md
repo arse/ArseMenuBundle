@@ -20,7 +20,8 @@ $bundles[] = new Arse\MenuBundle\ArseMenuBundle();
 ```
 
 To create / modify a list, a bundle needs to have a tagged service and the class must extend the
-Arse\MenuBundle\Service\AbstractMenuService abstract class.
+Arse\MenuBundle\Service\AbstractMenuService abstract class which has access to the router service ($this->router) for
+generating urls, and also the menu service ($this->menuService).
 
 e.g.
 ```
@@ -44,7 +45,7 @@ class Menu extends AbstractMenuService
 
         // fetch another menu/list for modification (a sublist is fetchable like this)
         $m = $this->menuService->getMenu('my-other-menu');
-        $m->addItem(new HtmlListItem('http://example.com', 'test link', array('id' => 'foo2')));
+        $m->addItem(new HtmlListItem($this->router->generate('foo.bar'), 'test link', array('id' => 'foo2')));
     }
 }
 ```
