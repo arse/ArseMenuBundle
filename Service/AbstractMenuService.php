@@ -20,8 +20,7 @@ abstract class AbstractMenuService
 
     /**
      * make all the changes to lists here:
-     *  add new lists
-     *  modify existing lists - fetch them with $this->menuService->getList('list_name');
+     *  add new lists or  modify existing lists - fetch them with $this->menuService->getMenu('list_name');
      *
      * @abstract
      * @return void

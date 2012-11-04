@@ -7,7 +7,8 @@ used to create and modify ul's and ol's across your application. Other uses may 
 an application, instruction steps for your application etc.
 
 The bundle creates a service (arse.menu), which exposes a menu controller (Arse\MenuBundle\Service\MenuController). This
-gives you access to create and fetch new menus/lists - now referred to as lists for the sake of brevity.
+gives you access to create and fetch new menus/lists - now referred to as lists for the sake of brevity - from a class
+within your bundles .
 
 Use
 -----
