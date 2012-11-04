@@ -15,7 +15,7 @@ use Arse\MenuBundle\Service\MenuController;
  */
 abstract class AbstractMenuService
 {
-    /** @var MenuController */
+    /** @var $menuService MenuController */
     protected $menuService;
 
     /**
