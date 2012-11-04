@@ -1,0 +1,9 @@
+services:
+  twig.extension.arse.menu:
+    class:  Arse\MenuBundle\Twig\Extension\MenuExtension
+    public: false
+    calls:
+      - [setMenuService, [@arse.menu]]
+    tags:
+      - {name: twig.extension}
+
