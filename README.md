@@ -15,7 +15,7 @@ Use
 Install the bundle and add to AppKernel.php
 
 ```
-        $bundles[] = new Arse\MenuBundle\ArseMenuBundle();
+$bundles[] = new Arse\MenuBundle\ArseMenuBundle();
 ```
 
 To create / modify a list, a bundle needs to have a tagged service and the class must extend the
@@ -69,4 +69,12 @@ To render the list, there is a twig function which will render the HTML for your
 That's All Folks
 ------------------
 
-That's all there is to it! Yes, it's basic, but it suffices for simple menus.
+That's all there is to it! Yes, it's basic, but it suffices for simple menus and listings.
+
+
+Todo
+--------------
+
+I'd like to add the possibility to render lists using twig templates. This would make bootstrap navigations easy to
+create. I directly have no use for this, but maybe someone who does would want to create a twig template for creating a
+navigation menu?
