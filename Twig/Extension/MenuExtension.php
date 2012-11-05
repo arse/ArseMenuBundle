@@ -61,7 +61,8 @@ class MenuExtension extends \Twig_Extension
 
     protected function renderList(HtmlList $list){
         $type = $list->getType();
-        $str = '<' . $type . ' ' . $this->renderAttributes($list->getAttributes()) . '>';
+        $attributes = $this->renderAttributes($list->getAttributes());
+        $str = '<' . $type . (strlen($attributes) > 0 ? ' ' . $attributes : '') . '>';
 
         foreach ($list->getItems() as /** @var $item HtmlListItem */ $item){
             // pull out item and list if it's a sublist
@@ -72,7 +73,8 @@ class MenuExtension extends \Twig_Extension
                 $hasSubList = true;
             }
 
-            $str .= '<li' . ' ' . $this->renderAttributes($item->getAttributes()) . '>';
+            $attributes = $this->renderAttributes($item->getAttributes());
+            $str .= '<li' . (strlen($attributes) > 0 ? ' ' . $attributes : '') . '>';
             // TODO the anchor should be able to have attributes set...maybe?
 
             $url = $item->getUrl();
