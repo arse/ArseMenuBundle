@@ -38,14 +38,18 @@ class Menu extends AbstractMenuService
         $m = $this->menuService->addUnorderedList('my-first-menu', $attributes);
         $m->addItem(new HtmlListItem('http://example.com', 'test link', array('id' => 'foo')));
 
-        // add a sublist to the list
-        $sublist = new HtmlList('sublist');
-        $sublist->addItem(new HtmlListItem('http://foo/1_big.jpg', 'it is a face'));
-        $m->addSubListItem(new HtmlListItem('http://google.com', 'google!'), $sublist);
+        // a sublist consists of an item (for the li) and a list for the submenu
+        // you can retrieve this menu by name in other bundles
+        $submenu = new HtmlList('submenu');
+        $submenu->addItem(new HtmlListItem('http://foo/1_big.jpg', 'a picture'));
+        $submenu->addItem(new HtmlListItem('http://foo/2_big.jpg', 'picture 2'));
+        $m->addSubListItem(new HtmlListItem('#', 'Pictures'), $submenu);
 
         // fetch another menu/list for modification (a sublist is fetchable like this)
         $m = $this->menuService->getMenu('my-other-menu');
-        $m->addItem(new HtmlListItem($this->router->generate('foo.bar'), 'test link', array('id' => 'foo2')));
+
+        // add an item with a router generated path - which consists of an array($pathName, array $args)
+        $m->addItem(array('a.path.name', array('id' => 5, 'type' => 'bar')), 'generated link', array('id' => 'foo2')));
     }
 }
 ```

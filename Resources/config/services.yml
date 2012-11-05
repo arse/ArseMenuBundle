@@ -1,3 +1,5 @@
 services:
   arse.menu:
     class: Arse\MenuBundle\Service\MenuController
+    calls:
+      - [setRouter, [@router]]

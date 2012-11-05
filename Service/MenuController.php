@@ -11,9 +11,16 @@ namespace Arse\MenuBundle\Service;
 use Arse\MenuBundle\Entity\HtmlList;
 use Arse\MenuBundle\Service\AbstractMenuService;
 
+use Symfony\Component\Routing\Router;
+
 class MenuController
 {
     protected $lists = array();
+
+    /**
+     * @var $router Router
+     */
+    protected $router;
 
     /**
      * add an ordered list
@@ -78,6 +85,21 @@ class MenuController
             return $this->lists[$name];
         }
         return false;
+    }
+
+    /**
+     * generate url for path
+     * @param       $pathName
+     * @param array $args
+     */
+    public function generateUrlForPathName($pathName, $args = array()){
+        $this->router->generate($pathName, $args);
+    }
+
+    public function setRouter($router)
+    {
+        $this->router = $router;
+        return $this;
     }
 
 }

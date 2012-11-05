@@ -24,12 +24,12 @@ class CompilerPass implements CompilerPassInterface
         }
 
         $listControllerDefinition = $container->getDefinition('arse.menu');
+//        $container->get('router')->getRouteCollection();
 
         foreach ($container->findTaggedServiceIds('arse.menu.listing') as $id => $attributes) {
             // for each tagged service, we need to inject the menu service into it so we can modify existing menus
             $serviceDef = $container->getDefinition(new Reference($id));
             $serviceDef->addMethodCall('setMenuService', array(new Reference('arse.menu')));
-            $serviceDef->addMethodCall('setRouter', array(new Reference('router')));
 
             // and we then process the instructions defined in the taggedservice->getLists();
             $listControllerDefinition->addMethodCall('processMenusFromService', array(new Reference($id)));

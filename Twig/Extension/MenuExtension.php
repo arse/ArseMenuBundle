@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class MenuExtension extends \Twig_Extension
 {
-    /** @var MenuController */
+    /** @var $menuService MenuController */
     protected $menuService;
 
     /** @var \Twig_Environment */
@@ -74,7 +74,18 @@ class MenuExtension extends \Twig_Extension
 
             $str .= '<li' . ' ' . $this->renderAttributes($item->getAttributes()) . '>';
             // TODO the anchor should be able to have attributes set...maybe?
-            $str .= '<a href="' . $item->getUrl() . '">' . $item->getText() . '</a>';
+
+            $url = $item->getUrl();
+            if (is_array($url)){
+                $pathName = $url[0];
+                $args = isset($url[1]) ? $url[1] : array();
+                $url = $this->menuService->generateUrlForPathName($pathName, $args);
+            }
+            else{
+                $url = $item->getUrl();
+            }
+
+            $str .= '<a href="' . $url . '">' . $item->getText() . '</a>';
 
             if ($hasSubList){
                 $str .= $this->renderList($list);
@@ -125,9 +136,9 @@ class MenuExtension extends \Twig_Extension
     /**
      * @return \Arse\MenuBundle\Service\MenuController
      */
-    public function getMenuService()
+/*    public function getMenuService()
     {
         return $this->menuService;
-    }
+    }*/
 
 }

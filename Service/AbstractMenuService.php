@@ -10,6 +10,7 @@ namespace Arse\MenuBundle\Service;
 
 use Arse\MenuBundle\Service\MenuController;
 use Symfony\Component\Routing\Router;
+use Symfony\Component\DependencyInjection\Container;
 
 /**
  * Abstract class to be extended for each bundle that wants to modify a list
@@ -19,8 +20,8 @@ abstract class AbstractMenuService
     /** @var $menuService MenuController */
     protected $menuService;
 
-    /** @var $router Router */
-    protected $router;
+    /** @var $router Container */
+    protected $container;
 
     /**
      * make all the changes to lists here:
@@ -42,11 +43,11 @@ abstract class AbstractMenuService
     }
 
     /**
-     * @param \Arse\MenuBundle\Service\Router $router
+     * @param Container $router
      */
-    public function setRouter($router)
+    public function setContainer($container)
     {
-        $this->router = $router;
+        $this->container = $container;
         return $this;
     }
 
