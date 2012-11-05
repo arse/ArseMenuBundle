@@ -95,7 +95,7 @@ class MenuService
      * @param array $args
      */
     public function generateUrlForPathName($pathName, $args = array()){
-        $this->router->generate($pathName, $args);
+        return $this->router->generate($pathName, $args);
     }
 
     public function setRouter($router)
