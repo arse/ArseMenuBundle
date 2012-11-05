@@ -32,8 +32,9 @@ e.g.
 namespace Foo\MyBundle\Menu;
 
 use Arse\MenuBundle\Service\AbstractMenuService;
-use Arse\MenuBundle\Entity\HtmlListItem;
 use Arse\MenuBundle\Entity\HtmlList;
+use Arse\MenuBundle\Entity\HtmlListItem;
+use Arse\MenuBundle\Entity\HtmlSubListItem;
 
 class Menu extends AbstractMenuService
 {
