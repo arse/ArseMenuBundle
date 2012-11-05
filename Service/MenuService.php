@@ -26,6 +26,7 @@ class MenuService
      * add an ordered list
      * @param       $name
      * @param array $attributes
+     * @return \Arse\MenuBundle\Entity\HtmlList
      */
     public function addOrderedList($name, $attributes = array()){
         $list = new HtmlList($name, HtmlList::TYPE_ORDERED_LIST, $attributes);
@@ -37,6 +38,7 @@ class MenuService
      * add an unordered list
      * @param       $name
      * @param array $attributes
+     * @return \Arse\MenuBundle\Entity\HtmlList
      */
     public function addUnorderedList($name, $attributes = array()){
         $list = new HtmlList($name, HtmlList::TYPE_UNORDERED_LIST, $attributes);
@@ -78,7 +80,7 @@ class MenuService
     /**
      * @param $name
      *
-     * @return HtmlList
+     * @return \Arse\MenuBundle\Entity\HtmlList
      */
     public function getMenu($name){
         if (array_key_exists($name, $this->lists)){

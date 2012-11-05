@@ -41,6 +41,14 @@ class HtmlList
     }
 
     public function addSubListItem(HtmlListItem $item, HtmlList $list){
+        // check that we have more than one item in the html list
+        // TODO this is hacky as it's a workaround to ensure that the htmllist already exists in the menuservice
+        // TODO so, a property should be added in htmllist to be set when created by the menu service and checked here?
+        if (count($list->getItems()) == 0){
+            throw new \RuntimeException('The supplied html list should have one item  before it can be used as a sublist.');
+            exit;
+        }
+
         $subList = new HtmlSubListItem($item, $list);
         $this->items[] = $subList;
     }

@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Container;
  */
 abstract class AbstractMenuService
 {
-    /** @var $menuService MenuService */
+    /** @var $menuService \Arse\MenuBundle\Service\MenuService */
     protected $menuService;
 
     /** @var $router Container */
