@@ -6,9 +6,9 @@ A simple bundle to help maintain menus/lists across bundles. The primary use for
 used to create and modify ul's and ol's across your application. Other uses may include a list of help commands across
 an application, instruction steps for your application etc.
 
-The bundle creates a service (arse.menu), which exposes a menu controller (Arse\MenuBundle\Service\MenuController). This
+The bundle creates a service (arse.menu), which exposes a menu controller (Arse\MenuBundle\Service\MenuService). This
 gives you access to create and fetch new menus/lists - now referred to as lists for the sake of brevity - from a class
-within your bundles .
+within your bundles.
 
 Use
 -----
@@ -19,7 +19,7 @@ Install the bundle and add to AppKernel.php
 $bundles[] = new Arse\MenuBundle\ArseMenuBundle();
 ```
 
-To create / modify a list, a bundle needs to have a tagged service and the class must extend the
+To create / modify a list, a bundle needs to expose a tagged service and the class must extend the
 Arse\MenuBundle\Service\AbstractMenuService abstract class which has access to the router service ($this->router) for
 generating urls, and also the menu service ($this->menuService).
 

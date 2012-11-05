@@ -13,7 +13,7 @@ use Arse\MenuBundle\Service\AbstractMenuService;
 
 use Symfony\Component\Routing\Router;
 
-class MenuController
+class MenuService
 {
     protected $lists = array();
 
@@ -59,7 +59,7 @@ class MenuController
 
     /**
      * @param array $menus
-     * @return MenuController
+     * @return MenuService
      */
 /*    public function setLists(array $lists)
     {

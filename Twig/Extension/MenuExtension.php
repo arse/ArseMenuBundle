@@ -8,7 +8,7 @@
  */
 namespace Arse\MenuBundle\Twig\Extension;
 
-use Arse\MenuBundle\Service\MenuController;
+use Arse\MenuBundle\Service\MenuService;
 use Arse\MenuBundle\Entity\HtmlList;
 use Arse\MenuBundle\Entity\HtmlListItem;
 use Arse\MenuBundle\Entity\HtmlSubListItem;
@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 class MenuExtension extends \Twig_Extension
 {
-    /** @var $menuService MenuController */
+    /** @var $menuService MenuService */
     protected $menuService;
 
     /** @var \Twig_Environment */
@@ -134,7 +134,7 @@ class MenuExtension extends \Twig_Extension
     }
 
     /**
-     * @return \Arse\MenuBundle\Service\MenuController
+     * @return \Arse\MenuBundle\Service\MenuService
      */
 /*    public function getMenuService()
     {

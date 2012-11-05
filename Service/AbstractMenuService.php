@@ -8,7 +8,7 @@
  */
 namespace Arse\MenuBundle\Service;
 
-use Arse\MenuBundle\Service\MenuController;
+use Arse\MenuBundle\Service\MenuService;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\DependencyInjection\Container;
 
@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\Container;
  */
 abstract class AbstractMenuService
 {
-    /** @var $menuService MenuController */
+    /** @var $menuService MenuService */
     protected $menuService;
 
     /** @var $router Container */
@@ -34,7 +34,7 @@ abstract class AbstractMenuService
 
 
     /**
-     * @param \Arse\MenuBundle\Service\MenuController $listService
+     * @param \Arse\MenuBundle\Service\MenuService $listService
      */
     public function setMenuService($listService)
     {
