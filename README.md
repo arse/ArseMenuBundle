@@ -20,8 +20,12 @@ $bundles[] = new Arse\MenuBundle\ArseMenuBundle();
 ```
 
 To create / modify a list, a bundle needs to expose a tagged service and the class must extend the
-Arse\MenuBundle\Service\AbstractMenuService abstract class which has access to the router service ($this->router) for
-generating urls, and also the menu service ($this->menuService).
+Arse\MenuBundle\Service\AbstractMenuService abstract class which has access to the menu service ($this->menuService) for
+retrieving other lists.
+
+Creating links that have generated urls is possible by passing in an array for the url, where the array consists of two
+elements, the first being the path name, and the second being an array of keyed args for the route if any. This args
+array can be left out if not needed.
 
 e.g.
 ```
