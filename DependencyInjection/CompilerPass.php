@@ -12,9 +12,6 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
 
-/**
- * The compiler pass is referred to in the bundle class - in this case, DsmManagerBundle.php
- */
 class CompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
