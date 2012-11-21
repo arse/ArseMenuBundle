@@ -107,7 +107,7 @@ class MenuExtension extends \Twig_Extension
         }
 
         $attrs = array();
-        // TODO validate key against possible keys?
+
         foreach ($attributes as $key => $val){
             $attrs[] = $key . '="' . htmlentities($val) . '"';
         }
