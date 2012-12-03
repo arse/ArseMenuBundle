@@ -34,7 +34,12 @@ class MenuExtension extends \Twig_Extension
     {
         return array(
             'menu' => new \Twig_Function_Method($this, 'render', array('is_safe' => array('html'))),
+            'menu_exists' => new \Twig_Function_Method($this, 'menuExists', array('is_safe' => array('html'))),
         );
+    }
+
+    public function menuExists($name){
+        return $this->menuService->getMenu($name) ? true : false;
     }
 
     /**
@@ -87,7 +92,12 @@ class MenuExtension extends \Twig_Extension
                 $url = $item->getUrl();
             }
 
-            $str .= '<a href="' . $url . '">' . $item->getText() . '</a>';
+            if (strlen($url) > 0){
+                $str .= '<a href="' . $url . '">' . $item->getText() . '</a>';
+            }
+            else{
+                $str .= $item->getText();
+            }
 
             if ($hasSubList){
                 $str .= $this->renderList($list);
